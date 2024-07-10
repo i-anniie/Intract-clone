@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: #6d3feb transparent;
+  scroll-behavior: smooth;
+  color: white;
+}
+::-webkit-scrollbar {
+  width: 0.25em;
+  height: 0.25em;
+}
+::-webkit-scrollbar-thumb {
+  background: #0d70ae;
+  border-radius: 10em;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+*:disabled {
+  cursor: not-allowed;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  color: black;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth !important;
+}
+body.modal-open {
+  overflow: hidden; /* see "modal-open" in Modal.tsx */
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.3);
+}
+@layer components {
+  .main-container {
+    @apply w-full max-w-[1700px] mx-auto px-4 md:px-6 xl:px-12 2xl:px-6;
+  }
+  .common-transition {
+    @apply transition-all ease-in-out duration-300 !important;
+  }
+  .top-spacing {
+    @apply pt-12 md:pt-16 lg:pt-20 2xl:pt-24;
+  }
+  .bottom-spacing {
+    @apply pb-12 md:pb-16 lg:pb-20 2xl:pb-24;
+  }
+  .top-space {
+    @apply pt-10 md:pt-12 lg:pt-16 2xl:pt-14;
+  }
+  .bottom-space {
+    @apply pb-10 md:pb-12 lg:pb-16 2xl:pb-14;
+  }
+  .title {
+    @apply text-2xl md:text-3xl lg:text-4xl  lg:leading-[3rem]  text-gray-800 capitalize tracking-wide font-bold;
+  }
+  .sub-title {
+    @apply text-lg md:text-xl lg:text-2xl font-bold capitalize tracking-wide text-gray-800;
+  }
+  .description {
+    @apply text-gray-600 tracking-wider;
+  }
+  .nav-btn {
+    @apply bg-primary text-white py-2 px-3 rounded-md shadow-primary shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] hover:shadow-none common-transition;
+  }
+  .btn-primary {
+    @apply tracking-wide capitalize bg-primary text-white rounded-lg common-transition py-2;
+  }
+  .btn-secondary {
+    @apply font-medium tracking-wide capitalize bg-secondary hover:bg-[#B1336E] text-white rounded-md common-transition;
+  }
+
+  .btn-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary py-2 px-4 rounded-md text-white font-semibold tracking-wide capitalize;
+  }
+
+  .carousel-item {
+    margin: 0 0 0 10px;
+  }
+  .footerGradient {
+    background: linear-gradient(to top, #17880e 20%, #17880e 35%, #ffffff 45%);
+  }
+}
+.hover-underline:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  /* color: #1bb0b3; */
+  background-color: #5b50a1;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.hover-underline:hover:after {
+  transform: scaleX(1);
+
+  transform-origin: bottom left;
+}
+.delay-animation {
+  @apply !transition-all !ease-in-out !duration-500;
+}
+.feature-slick-slider .slick-track {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+}
+
+/*//? nProgressbar styling */
+
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background-image: linear-gradient(to right, #0d70ae, #b1336e);
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px #894782, 0 0 5px #894782;
+  opacity: 1;
+
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+  -ms-transform: rotate(3deg) translate(0px, -4px);
+  transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+  display: block;
+  position: fixed;
+  z-index: 9999;
+  top: 15px;
+  right: 15px;
+}
+
+#nprogress .spinner-icon {
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  border: solid 2px transparent;
+  border-top-color: #0d70ae;
+  border-left-color: #b1336e;
+  border-radius: 50%;
+
+  -webkit-animation: nprogress-spinner 400ms linear infinite;
+  animation: nprogress-spinner 400ms linear infinite;
+}
+
+.nprogress-custom-parent {
+  overflow: hidden;
+  position: relative;
+}
+
+.nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .bar {
+  position: absolute;
+}
+
+@-webkit-keyframes nprogress-spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes nprogress-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
