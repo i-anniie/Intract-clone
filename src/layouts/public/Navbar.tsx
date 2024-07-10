@@ -185,7 +185,7 @@ const Navbar = () => {
                   <div key={i}>
                     <Link href={item.link}>
                       <div className="flex items-center justify-center gap-1 text-xl py-4">
-                        <h1>{item.title}</h1>
+                        <h1 className="text-black">{item.title}</h1>
                         <h1>
                           <IoIosArrowRoundForward />
                         </h1>
