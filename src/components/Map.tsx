@@ -111,7 +111,7 @@ const Map = () => {
             {activeIndex === i && (
               <div className="bg-[rgb(20,20,20)] rounded-3xl p-4 mt-4">
                 {item.subMenu.map((subMenu, index) => (
-                  <div className="bg-[#141414] min-h-[10rem] rounded-3xl flex items-center justify-between gap-4 p-4">
+                  <div key={index} className="bg-[#141414] min-h-[10rem] rounded-3xl flex items-center justify-between gap-4 p-4">
                     <div className="border border-white/50 rounded-3xl p-3 bg-white/10">
                       <img
                         src={subMenu.img}
