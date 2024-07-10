@@ -14,6 +14,23 @@ const cardSchema = [
     subTitle: "The safest and easiest place to start your crypto journey!",
     quest: "6 Quests",
     point: "1490 XPs",
+    subMenu: [
+      {
+        img: "/subMenu_img_1.png",
+        title: "#1 But what is crypto and...",
+        task: "11 Tasks",
+      },
+      {
+        img: "/subMenu_img_2.jpeg",
+        title: "#2 Setting up your own web3",
+        task: "8 Tasks",
+      },
+      {
+        img: "/subMenu_img_3.jpg",
+        title: "#3: What the heck is a",
+        task: "8 Tasks",
+      },
+    ],
   },
   {
     img: "/map_img_3.png",
@@ -21,6 +38,23 @@ const cardSchema = [
     subTitle: "Your best bet to make it big in crypto!",
     quest: "4 Quests",
     point: "1040 XPs",
+    subMenu: [
+      {
+        img: "/subMenu_img_1.png",
+        title: "#1 But what is crypto and...",
+        task: "11 Tasks",
+      },
+      {
+        img: "/subMenu_img_2.jpg",
+        title: "#2 Setting up your own web3",
+        task: "8 Tasks",
+      },
+      {
+        img: "/subMenu_img_3.jpg",
+        title: "#3: What the heck is a",
+        task: "8 Tasks",
+      },
+    ],
   },
 ];
 
@@ -75,30 +109,29 @@ const Map = () => {
               </div>
             </div>
             {activeIndex === i && (
-              <div className="bg-[#141414] rounded-3xl p-4 mt-4">
-                <div className="relative border border-white/50 rounded-3xl p-3 bg-white/10">
-                  <img
-                    src={item.img}
-                    alt=""
-                    className="w-36 h-36 object-cover rounded-3xl"
-                  />
-                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
-                    <h1 className="rounded-full bg-white/10 py-2 px-2 text-sm">
-                      {item.point}
-                    </h1>
+              <div className="bg-[rgb(20,20,20)] rounded-3xl p-4 mt-4">
+                {item.subMenu.map((subMenu, index) => (
+                  <div className="bg-[#141414] min-h-[10rem] rounded-3xl flex items-center justify-between gap-4 p-4">
+                    <div className="border border-white/50 rounded-3xl p-3 bg-white/10">
+                      <img
+                        src={subMenu.img}
+                        alt=""
+                        className="w-36 h-24 object-cover rounded-3xl"
+                      />
+                     
+                    </div>
+                    <div className="flex flex-col w-3/4">
+                      <div className="flex flex-col gap-3">
+                        <h1 className="text-xl lg:text-xl">{subMenu.title}</h1>
+                        
+                        <div className="w-full bg-white border-t border-dotted"></div>
+                        <h1 >
+                          {subMenu.task}
+                        </h1>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="flex flex-col gap-3 mt-4">
-                  <h1 className="text-xl lg:text-2xl">{item.title}</h1>
-                  <h1 className="text-white/50 text-sm lg:text-base">
-                    {item.subTitle}
-                  </h1>
-                  <div className="w-full bg-white border-t border-dotted"></div>
-                  <h1 className="rounded-full bg-white/10 py-1 px-2 w-fit text-sm lg:text-base flex items-center gap-1">
-                    <img src="/coin.svg" alt="" className="w-6 h-6" />
-                    <span>{item.point}</span>
-                  </h1>
-                </div>
+                ))}
               </div>
             )}
           </div>
